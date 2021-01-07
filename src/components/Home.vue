@@ -5,14 +5,26 @@
     <section class="container__right"></section>
 
     <section class="container__banner">
-      <section class="container__banner--social-icons"></section>
+      <section class="container__banner--social-icons">
+        <!-- <font-awesome-icon :icon="['fas', 'facebook']" /> -->
+        <a href="#"> <i class="fa fa-instagram"></i> </a>
+        <a href="#"> <i class="fa fa-twitter"></i> </a>
+        <a href="#"> <i class="fa fa-snapchat"></i> </a>
+        <a href="#"> <i class="fa fa-envelope"></i> </a>
+      </section>
       <section class="container__banner--content">
         <h1>Aquila Aveion</h1>
-        <div class="container__banner--content-imgDisplay"></div>
+        <div class="container__banner--content-imgDisplay">
+          <img src="../assets/ladyFull.png" alt="" srcset="" />
+        </div>
         <ul class="container__banner--content-links">
           <li><a href="#">home</a></li>
           <li><a href="#">about</a></li>
-          <li><div class="img"></div></li>
+          <li>
+            <div class="img">
+              <img src="../assets/ladyPass2.png" alt="" />
+            </div>
+          </li>
           <li><a href="#">gallery</a></li>
           <li><a href="#">contact</a></li>
         </ul>
@@ -55,18 +67,39 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    // background: red;
+
     &--social-icons {
-      height: 200px;
-      width: 50px;
-      background: $white;
+      height: auto;
+      width: auto;
       position: absolute;
-      right: 20px;
+      right: 10px;
+      display: flex;
+      flex-direction: column;
+
+      @media screen and (max-width: 500px) {
+        right: 0;
+      }
+
+      a {
+        cursor: pointer;
+      }
+
+      i.fa {
+        font-size: 1.4rem;
+        color: $white;
+        margin: 10px;
+        cursor: pointer;
+        transition: 300ms all ease-in-out;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
     }
     &--content {
       width: 100%;
       height: 100%;
-      position: absolute;
+      // position: absolute;
       display: flex;
       margin: auto;
       align-items: center;
@@ -80,6 +113,7 @@ export default {
         font-weight: 100;
         font-size: 2rem;
         letter-spacing: 15px;
+        font-family: "Poppins", sans-serif;
       }
 
       &-imgDisplay {
@@ -87,6 +121,24 @@ export default {
         height: 70vh;
         background: $primaryLight;
         box-shadow: -2px 3px 13px 3px $dark;
+        position: relative;
+
+        @media screen and (max-width: 967px) {
+          width: 70%;
+        }
+
+        @media screen and (max-width: 500px) {
+          width: 75%;
+          height: 50vh;
+        }
+
+        img {
+          width: 100%;
+          margin-bottom: 0;
+          position: absolute;
+          left: 0;
+          bottom: 0px;
+        }
       }
 
       &-links {
@@ -97,15 +149,38 @@ export default {
         justify-content: space-between;
         align-items: center;
         padding-left: 0px;
+
+        @media screen and (max-width: 1000px) {
+          width: 90%;
+          margin-left: 0px;
+        }
+
+        @media screen and (max-width: 661px) {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
         & > li {
           list-style-type: none;
           margin: 10px;
           & > .img {
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 70px;
             border: none;
             border-radius: 50%;
-            background: black;
+            display: flex;
+            overflow: hidden;
+
+            @media screen and (max-width: 661px) {
+              width: 50px;
+              height: 47px;
+            }
+
+            img {
+              width: 100%;
+              height: 100%;
+              margin: auto;
+            }
           }
           & > a {
             color: $white;
@@ -113,7 +188,13 @@ export default {
             text-transform: uppercase;
             font-weight: lighter;
             letter-spacing: 5px;
+            font-weight: 300;
             font-size: 1.2rem;
+            font-family: "Poppins", sans-serif;
+
+            @media screen and (max-width: 661px) {
+              font-size: 1rem;
+            }
           }
         }
       }
