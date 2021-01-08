@@ -144,6 +144,7 @@ export default {
         background: $primaryLight;
         box-shadow: -2px 3px 13px 3px $dark;
         position: relative;
+        overflow: hidden;
 
         @media screen and (max-width: 967px) {
           width: 70%;
