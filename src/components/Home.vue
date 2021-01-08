@@ -7,21 +7,30 @@
     <section class="container__banner">
       <section class="container__banner--social-icons">
         <!-- <font-awesome-icon :icon="['fas', 'facebook']" /> -->
-        <a :href="data.social_media.instagram">
+        <a
+          :href="'https://www.instagram.com/' + data.social_media.instagram"
+          target="_blank"
+        >
           <i class="fa fa-instagram"></i>
         </a>
-        <a :href="data.social_media.twitter">
+        <a
+          :href="'https://twitter.com/' + data.social_media.twitter"
+          target="_blank"
+        >
           <i class="fa fa-twitter"></i>
         </a>
-        <a :href="data.social_media.snapchat">
+        <a
+          :href="'https://snapchat.com/' + data.social_media.snapchat"
+          target="_blank"
+        >
           <i class="fa fa-snapchat"></i>
         </a>
-        <a :href="data.social_media.email">
+        <a :href="'mailto:' + data.social_media.email">
           <i class="fa fa-envelope"></i>
         </a>
       </section>
       <section class="container__banner--content">
-        <h1>{{ data.name }}</h1>
+        <h1>{{ data.name ? data.name : "Loading ..." }}</h1>
         <div class="container__banner--content-imgDisplay">
           <img src="../assets/ladyFull.png" alt="" srcset="" />
         </div>
