@@ -7,13 +7,21 @@
     <section class="container__banner">
       <section class="container__banner--social-icons">
         <!-- <font-awesome-icon :icon="['fas', 'facebook']" /> -->
-        <a href="#"> <i class="fa fa-instagram"></i> </a>
-        <a href="#"> <i class="fa fa-twitter"></i> </a>
-        <a href="#"> <i class="fa fa-snapchat"></i> </a>
-        <a href="#"> <i class="fa fa-envelope"></i> </a>
+        <a :href="data.social_media.instagram">
+          <i class="fa fa-instagram"></i>
+        </a>
+        <a :href="data.social_media.twitter">
+          <i class="fa fa-twitter"></i>
+        </a>
+        <a :href="data.social_media.snapchat">
+          <i class="fa fa-snapchat"></i>
+        </a>
+        <a :href="data.social_media.email">
+          <i class="fa fa-envelope"></i>
+        </a>
       </section>
       <section class="container__banner--content">
-        <h1>Aquila Aveion</h1>
+        <h1>{{ data.name }}</h1>
         <div class="container__banner--content-imgDisplay">
           <img src="../assets/ladyFull.png" alt="" srcset="" />
         </div>
@@ -36,8 +44,22 @@
 <script>
 export default {
   name: "Home",
-  props: {
-    msg: String,
+  data() {
+    return {
+      data: {
+        social_media: {},
+      },
+    };
+  },
+  mounted() {
+    this.getData();
+  },
+  methods: {
+    async getData() {
+      const response = await fetch("https://hirng-x2021.glitch.me/api");
+      const data = await response.json();
+      this.data = data;
+    },
   },
 };
 </script>
